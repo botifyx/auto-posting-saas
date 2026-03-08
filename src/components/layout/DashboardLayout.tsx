@@ -8,6 +8,7 @@ import NotificationsPanel from './NotificationsPanel';
 import { useNotificationStore } from '@/store/useNotificationStore';
 import { mockNotifications } from '@/lib/mockData';
 import { Toaster } from 'react-hot-toast';
+import { useTheme } from 'next-themes';
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
@@ -15,7 +16,8 @@ interface DashboardLayoutProps {
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
+    const { theme, setTheme } = useTheme();
+    const darkMode = theme === 'dark';
     const { setNotifications } = useNotificationStore();
 
     useEffect(() => {
@@ -23,21 +25,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         setNotifications(mockNotifications);
     }, [setNotifications]);
 
-    useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [darkMode]);
-
     return (
         <div className={cn('min-h-screen bg-stone-50 dark:bg-zinc-950 transition-colors duration-300')}>
             <Sidebar collapsed={sidebarCollapsed} onToggle={() => setSidebarCollapsed(!sidebarCollapsed)} />
             <Topbar
                 sidebarCollapsed={sidebarCollapsed}
                 darkMode={darkMode}
-                onToggleDarkMode={() => setDarkMode(!darkMode)}
+                onToggleDarkMode={() => setTheme(darkMode ? 'light' : 'dark')}
             />
             <NotificationsPanel />
             <main

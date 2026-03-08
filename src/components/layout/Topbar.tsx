@@ -59,12 +59,12 @@ export default function Topbar({ sidebarCollapsed, darkMode, onToggleDarkMode }:
                     <span className="hidden sm:inline">New Post</span>
                 </Link>
 
-                {/* <button
+                <button
                     onClick={onToggleDarkMode}
                     className="p-2.5 rounded-xl text-stone-500 dark:text-zinc-400 hover:bg-stone-100 dark:hover:bg-zinc-800/60 transition-all duration-200"
                 >
                     {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                </button> */}
+                </button>
 
                 <button
                     onClick={togglePanel}
