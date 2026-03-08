@@ -1,0 +1,324 @@
+@import "tailwindcss";
+
+/* ============================================================
+   AUTO SOCIAL MEDIA POSTING PLATFORM — Premium Design System
+   A CXO-level, executive-grade design language.
+   ============================================================ */
+
+@theme {
+    /* --- Neutral Stone Palette --- */
+    --color-surface-50: #FAFAF9;
+    --color-surface-100: #F5F5F4;
+    --color-surface-200: #E7E5E4;
+    --color-surface-300: #D6D3D1;
+    --color-surface-400: #A8A29E;
+    --color-surface-500: #78716C;
+    --color-surface-600: #57534E;
+    --color-surface-700: #44403C;
+    --color-surface-800: #292524;
+    --color-surface-900: #1C1917;
+    --color-surface-950: #0C0A09;
+
+    /* --- Accent Indigo --- */
+    --color-accent-50: #EEF2FF;
+    --color-accent-100: #E0E7FF;
+    --color-accent-200: #C7D2FE;
+    --color-accent-300: #A5B4FC;
+    --color-accent-400: #818CF8;
+    --color-accent-500: #6366F1;
+    --color-accent-600: #4F46E5;
+    --color-accent-700: #4338CA;
+    --color-accent-800: #3730A3;
+    --color-accent-900: #312E81;
+
+    /* --- Semantic Colors --- */
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
+    --color-info: #3B82F6;
+
+    /* --- Dark Mode Surfaces --- */
+    --color-dark-bg: #09090B;
+    --color-dark-card: #18181B;
+    --color-dark-elevated: #27272A;
+    --color-dark-border: #3F3F46;
+
+    /* --- Premium Shadows --- */
+    --shadow-soft: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+    --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
+
+    /* --- Border Radius --- */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.25rem;
+
+    /* --- Font --- */
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --- Base --- */
+
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface-50);
+    color: var(--color-surface-900);
+}
+
+/* --- Dark Mode --- */
+.dark body,
+.dark {
+    background-color: var(--color-dark-bg);
+    color: var(--color-surface-100);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-surface-300);
+    border-radius: 100px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: var(--color-dark-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-surface-400);
+}
+
+/* --- Selection --- */
+::selection {
+    background-color: var(--color-accent-200);
+    color: var(--color-accent-900);
+}
+
+.dark ::selection {
+    background-color: var(--color-accent-700);
+    color: white;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes pulse-soft {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slideInRight {
+    animation: slideInRight 0.3s ease-out forwards;
+}
+
+.animate-slideInLeft {
+    animation: slideInLeft 0.3s ease-out forwards;
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.2s ease-out forwards;
+}
+
+.animate-shimmer {
+    animation: shimmer 2s infinite;
+}
+
+.animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* --- Glass Morphism --- */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(63, 63, 70, 0.3);
+}
+
+/* --- Premium Card --- */
+.premium-card {
+    background: white;
+    border: 1px solid var(--color-surface-200);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    transition: all 0.2s ease;
+}
+
+.premium-card:hover {
+    box-shadow: var(--shadow-elevated);
+    border-color: var(--color-surface-300);
+}
+
+.dark .premium-card {
+    background: var(--color-dark-card);
+    border-color: var(--color-dark-border);
+}
+
+.dark .premium-card:hover {
+    border-color: var(--color-surface-500);
+}
+
+/* --- Gradient Text --- */
+.gradient-text {
+    background: linear-gradient(135deg, var(--color-accent-500) 0%, var(--color-accent-700) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* --- Focus Ring --- */
+.focus-ring {
+    outline: none;
+}
+
+.focus-ring:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
+}
+
+/* --- Stagger Children Animation --- */
+.stagger-children>* {
+    animation: fadeIn 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+.stagger-children>*:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.stagger-children>*:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.stagger-children>*:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.stagger-children>*:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.stagger-children>*:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.stagger-children>*:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.stagger-children>*:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.stagger-children>*:nth-child(8) {
+    animation-delay: 0.4s;
+}
